@@ -1,42 +1,29 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import * as React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import TabNavigator from '../src/navigator/TabNavigator';
+import MovieDetailsScreen from '../src/screen/MovieDetailsScreen';
+import SeatBookingScreen from '../src/screen/SeatBookingScreen';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+const Stack = createNativeStackNavigator();
 
-import { upcomingMovies, popularMovies, searchMovies } from '@/src/assets/api/apicalls';
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }(searchMovies('avengers'));
-
-  console.log(upcomingMovies);
-
+export default function App() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen
+          name="Tab"
+          component={TabNavigator}
+          options={{animation: 'default'}}
+        />
+        <Stack.Screen
+          name="MovieDetails"
+          component={MovieDetailsScreen}
+          options={{animation: 'slide_from_right'}}
+        />
+        <Stack.Screen
+          name="SetBooking"
+          component={SeatBookingScreen}
+          options={{animation: 'slide_from_bottom'}}
+        />
+      </Stack.Navigator>
   );
 }
