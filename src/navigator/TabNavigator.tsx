@@ -6,8 +6,7 @@ import UserAccountScreen from '../screen/UserAccountScreen';
 import { COLORS, FONTSIZE, SPACING } from '../Theme/theme';
 import { View, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';  // <-- Import Ionicons
-
+import { Ionicons } from '@expo/vector-icons';  
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
@@ -21,7 +20,7 @@ const TabNavigator = () => {
           backgroundColor: COLORS.Black,
           borderTopWidth: 0,
           height: SPACING.space_10 * 10,
-          marginTop: SPACING.space_10,
+          
         },
         tabBarIcon: ({ color, size, focused }) => {
           let iconName: string = '';
@@ -35,11 +34,11 @@ const TabNavigator = () => {
           } else if (route.name === 'User') {
             iconName = focused ? 'person' : 'person-outline';
           }
-
-          return <Ionicons name={iconName as any} size={focused ? 34 : 30} color={color} />;
+          const iconColor = focused ? COLORS.Red : color;
+          return <Ionicons  name={iconName as any} size={focused ? 34 : 30} color={iconColor} />;
         },
-        tabBarActiveTintColor: COLORS.Red,
-        tabBarInactiveTintColor: COLORS.White,
+        activeTabBackground: COLORS.Red,
+        tabBarInactiveTintColor: COLORS.White, 
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
