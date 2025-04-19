@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
       borderRadius: BORDERADIUS.radius_25,
       flexDirection: 'row',
       alignItems: 'center',
-      marginTop: SPACING.space_12
+      marginTop: SPACING.space_12,
+      marginBottom: SPACING.space_10
     },
     textInput: {
       flex: 1,

@@ -20,7 +20,8 @@ const TabNavigator = () => {
           backgroundColor: COLORS.Black,
           borderTopWidth: 0,
           height: SPACING.space_10 * 10,
-          
+          paddingBottom: 5,    
+          paddingTop: 10,
         },
         tabBarIcon: ({ color, size, focused }) => {
           let iconName: string = '';
@@ -52,7 +53,7 @@ const TabNavigator = () => {
 const Styles = StyleSheet.create({
   activeTabBackground: {
     backgroundColor: COLORS.Black,
-    padding: SPACING.space_18,
+    padding: SPACING.space_20,
     borderRadius: SPACING.space_18 * 10,
   },
 });
