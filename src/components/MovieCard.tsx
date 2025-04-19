@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import {BORDERADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../Theme/theme';
-import CustomIcon from './CustomIcon';
 import { Ionicons } from '@expo/vector-icons';
 
 const genres: any ={

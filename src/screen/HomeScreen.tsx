@@ -198,8 +198,8 @@ const styles = StyleSheet.create({
     marginTop: SPACING.space_28
   },
   containerGap36:{
-    gap: 2,
-    paddingHorizontal: 26
+    gap: 4,
+    paddingHorizontal: 28
   }
 });
 

@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, TextInput, TouchableOpacity} from 'react-native
 import { BORDERADIUS, COLORS, SPACING } from '../Theme/theme';
 import { Ionicons } from '@expo/vector-icons';
 interface InputHeaderProps {
-  searchFunction: () => void;
+  searchFunction: (name: string) => void;
 }
 const InputHeader: React.FC<InputHeaderProps> = ({ searchFunction }) => {
    const [searchText, setSearchText] =useState<string>('');
@@ -16,7 +16,7 @@ const InputHeader: React.FC<InputHeaderProps> = ({ searchFunction }) => {
           value={searchText}
           onChangeText={textInput => setSearchText(textInput)}
           />
-    <TouchableOpacity onPress={searchFunction}>
+    <TouchableOpacity onPress={() => searchFunction(searchText)}>
       <Ionicons name="search" size={24} color= {COLORS.Red} />
     </TouchableOpacity>
     </View>
@@ -26,7 +26,7 @@ const InputHeader: React.FC<InputHeaderProps> = ({ searchFunction }) => {
 const styles = StyleSheet.create({
     inputBox: {
       display: 'flex',
-      paddingVertical: 5,
+      minHeight: 50,  
       paddingHorizontal: SPACING.space_20,
       borderWidth:1.5,
       borderColor: COLORS.White,

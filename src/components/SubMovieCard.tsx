@@ -4,23 +4,22 @@ import {BORDERADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../Theme/theme
 
 const SubMovieCard = (props: any) => {
   return (
-      <TouchableOpacity onPress={() => props.cardFunctin() }>
-        <View style={[styles.container, props.shouldMarginatedAtEnd 
-        ? props.infirst
-            ?{marginLeft:SPACING.space_36} 
-            : props.islast 
-            ? {marginRight: SPACING.space_36}
-            :{}
-        :{},
-        props.shouldMarginatedAtEnd ? {margin: SPACING.space_12}: {},
-        {maxWidth: props.cardWidth}
-         ]}>
+    <TouchableOpacity onPress={() => props.cardFunctin() }>
+        <View style={[
+          styles.container,
+          { 
+            marginHorizontal: SPACING.space_12,   // jarak kiri-kanan antar gambar
+            marginBottom: SPACING.space_20,      // jarak antar baris
+            maxWidth: props.cardWidth
+          }
+        ]}>
             <Image 
-                style={[styles.cardImage, {width:props.cardWidth}]}
-                source= {{uri: props.imagePath}} />
+                style={[styles.cardImage, {width: props.cardWidth}]}
+                source={{ uri: props.imagePath }} 
+            />
             <Text numberOfLines={1} style={styles.textTitle}>{props.title}</Text>
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity>  
   );
 };
 

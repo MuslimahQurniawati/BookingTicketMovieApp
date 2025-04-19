@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TabNavigator from '../src/navigator/TabNavigator';
 import MovieDetailsScreen from '../src/screen/MovieDetailsScreen';
 import SeatBookingScreen from '../src/screen/SeatBookingScreen';
+import SearchScreen from '../src/screen/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,11 @@ export default function App() {
           name="SetBooking"
           component={SeatBookingScreen}
           options={{animation: 'slide_from_bottom'}}
+        />
+        <Stack.Screen
+          name="Search"
+          component={SearchScreen}
+          options={{animation: 'slide_from_right'}} // bebas, bisa kamu ganti efek transisinya.
         />
       </Stack.Navigator>
   );
