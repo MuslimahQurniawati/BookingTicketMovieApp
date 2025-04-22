@@ -97,9 +97,10 @@ const HomeScreen = ({ navigation }: any) => {
       <FlatList
         data={nowPlayingMoviesList} 
         keyExtractor={(item: any) => item.id}
-        // bounces={false}
+        bounces={false}
         snapToInterval={width * 1.5 + SPACING.space_36}
         horizontal
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.containerGap36}
         renderItem={({ item, index }) => {
           if (item.id === 'dummy1' || item.id === 'dummy2') {
@@ -129,6 +130,7 @@ const HomeScreen = ({ navigation }: any) => {
         data={popularMoviesList} 
         keyExtractor={(item: any) => item.id}
         bounces={false}
+        showsHorizontalScrollIndicator={false}
         horizontal
         contentContainerStyle={styles.containerGap36}
         renderItem={({item, index}) => (
@@ -150,6 +152,7 @@ const HomeScreen = ({ navigation }: any) => {
         data={upcomingMoviesList} 
         keyExtractor={(item: any) => item.id}
         bounces={false}
+        showsHorizontalScrollIndicator={false}
         horizontal
         contentContainerStyle={styles.containerGap36}
         renderItem={({item, index}) => (
