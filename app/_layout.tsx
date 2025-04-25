@@ -4,6 +4,7 @@ import TabNavigator from '../src/navigator/TabNavigator';
 import MovieDetailsScreen from '../src/screen/MovieDetailsScreen';
 import SeatBookingScreen from '../src/screen/SeatBookingScreen';
 import SearchScreen from '../src/screen/SearchScreen';
+import TicketScreen from '@/src/screen/TicketScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,11 @@ export default function App() {
         <Stack.Screen
           name="Search"
           component={SearchScreen}
+          options={{animation: 'slide_from_right'}} // bebas, bisa kamu ganti efek transisinya.
+        />
+        <Stack.Screen
+          name="Ticket"
+          component={TicketScreen}
           options={{animation: 'slide_from_right'}} // bebas, bisa kamu ganti efek transisinya.
         />
       </Stack.Navigator>
