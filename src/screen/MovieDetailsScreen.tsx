@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, ScrollView, ActivityIndicator, StatusBar, ImageBackground, Image, FlatList } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, ActivityIndicator, StatusBar, ImageBackground, Image, FlatList, TouchableOpacity } from 'react-native';
 import { baseImagePath, movieDetails, moviecastDetails } from '../api/apicalls';
 import { BORDERADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../Theme/theme'
 import AppHeader from '../components/AppHeader';
 import { Ionicons } from '@expo/vector-icons';
 import CategoryHeader from '../components/CategoryHeader';
+import CastCard from '../components/CastCard';
 
 const getMovieDetails = async (movieid: number) => {
   try {
@@ -40,7 +41,7 @@ const MovieDetailScreen = ({ navigation, route }: any) => {
       const tempMovieCastData = await getMovieCastDetails (route.params.movieid);
       setMovieCastData(tempMovieCastData)
   })();
-
+console.log(movieCastData)
 }, []);
   
   if  (movieData == undefined && movieData == null && movieCastData == undefined && movieCastData == null) {
@@ -84,7 +85,7 @@ const MovieDetailScreen = ({ navigation, route }: any) => {
                 header={''}
                 action={() => navigation.goBack()}
               />
-          </View>
+            </View>
 
         </ImageBackground>
         <View style={styles.imageBG}></View>
@@ -133,11 +134,34 @@ const MovieDetailScreen = ({ navigation, route }: any) => {
 
       <View>
         <CategoryHeader title="Top Cast" />
-        <FlatList data={movieCastData} keyExtractor={(item:any) => item.id}
+        <FlatList 
+          data={movieCastData?.cast}
+          keyExtractor={(item:any) => item.id}
           horizontal contentContainerStyle ={styles.containerGap24}
           renderItem={({item, index}) => (
-            <Text>{item.original_name}</Text>
-          )}/>
+          <CastCard
+            shouldMarginatedAtEnd={true}
+            cardWidth={80}
+            inFirst={index == 0 ? true : false}
+            inLast={index == movieCastData.length - 1 ? true : false}
+            imagePath={baseImagePath('w500', item.profile_path)}
+            title={item.original_name}
+            subtitle={item.character}
+          />
+        )}
+        />
+
+      <View>
+        <TouchableOpacity
+          style={styles.buttonBG}
+          onPress={() => {
+            navigation.push('SeatBooking', {
+              BgImage: baseImagePath('w780', movieData.poster_path),
+            });
+          }}>
+          <Text style={styles.buttonText}>Select Seats</Text>
+        </TouchableOpacity>
+      </View>
       </View>
     </ScrollView>
   )
@@ -259,4 +283,17 @@ const styles = StyleSheet.create({
   containerGap24:{
     gap: SPACING.space_24,
   },
+  buttonBG:{
+    alignItems: 'center',
+    marginVertical: SPACING.space_24,
+    marginBottom: 70
+  },
+  buttonText:{
+    borderRadius: BORDERADIUS.radius_25 * 2,
+    paddingHorizontal: SPACING.space_24,
+    paddingVertical: SPACING.space_10,
+    backgroundColor: COLORS.Red,
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: FONTSIZE.size_14,
+  }
 });

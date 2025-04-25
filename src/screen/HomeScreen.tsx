@@ -112,7 +112,7 @@ const HomeScreen = ({ navigation }: any) => {
           return (
             <MovieCard
               shouldMarginatedAtEnd={true}
-              cardFunctin={() => navigation.push('MovieDetails', { movieid: item.id })}
+              cardFunction={() => navigation.push('MovieDetails', { movieid: item.id })}
               cardWidth={width / 1.5}
               isFirst={index === 0}
               isLast={index === nowPlayingMoviesList.length - 1}
@@ -136,7 +136,7 @@ const HomeScreen = ({ navigation }: any) => {
         renderItem={({item, index}) => (
           <SubMovieCard 
             shouldMarginatedAtEnd={true}
-            cardFunctin={() => {
+            cardFunction={() => {
               navigation.push('MovieDetails', {movieid: item.id});
             }}
             cardWidth={width / 3}
@@ -158,7 +158,7 @@ const HomeScreen = ({ navigation }: any) => {
         renderItem={({item, index}) => (
           <SubMovieCard 
             shouldMarginatedAtEnd={true}
-            cardFunctin={() => {
+            cardFunction={() => {
               navigation.push('MovieDetails', {movieid: item.id});
             }}
             cardWidth={width / 3}

@@ -21,7 +21,7 @@ export default function App() {
           options={{animation: 'slide_from_right'}}
         />
         <Stack.Screen
-          name="SetBooking"
+          name="SeatBooking"
           component={SeatBookingScreen}
           options={{animation: 'slide_from_bottom'}}
         />

@@ -4,7 +4,7 @@ import {BORDERADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../Theme/theme
 
 const SubMovieCard = (props: any) => {
   return (
-    <TouchableOpacity onPress={() => props.cardFunctin() }>
+    <TouchableOpacity onPress={() => props.cardFunction() }>
         <View style={[
           styles.container,
           { 

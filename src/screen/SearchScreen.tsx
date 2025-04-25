@@ -7,7 +7,7 @@ import SubMovieCard from '../components/SubMovieCard';
 
 const {width, height} = Dimensions.get('screen');
 
-const SearchScreen = (navigation : any) => {
+const SearchScreen = ({navigation} : any) => {
   const [SearchList, setSearchList] = useState([]);
 
   const searchMoviesFunction = async (name:string) => {
@@ -28,6 +28,7 @@ const SearchScreen = (navigation : any) => {
                 keyExtractor={(item: any) => item.id}
                 bounces={false}
                 numColumns={2}
+                showsVerticalScrollIndicator={false}
                 ListHeaderComponent={
                   <View style={{ width: width - SPACING.space_36 * 2, alignSelf: 'center', marginTop: SPACING.space_28 }}>
                     <InputHeader searchFunction={searchMoviesFunction} />
@@ -41,7 +42,8 @@ const SearchScreen = (navigation : any) => {
                 renderItem={({item, index}) => (
                   <SubMovieCard 
                     shouldMarginatedAtEnd={false}
-                    cardFunctin={() => {
+                    shouldMarginatedAround={true}
+                    cardFunction={() => {
                       navigation.push('MovieDetails', {movieid: item.id});
                     }}
                     cardWidth={width / 2 - SPACING.space_12*2}
