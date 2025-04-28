@@ -21,7 +21,9 @@ const TicketScreen = ({navigation, route}: any) => {
     })();
   }, []);
 
-  console.log('TICKETDATA', ticketData);
+  console.log('ticketData:', ticketData);
+console.log('ticketImage:', ticketData?.ticketImage);
+
   if (ticketData !== route.params && route.params != undefined) {
     setTicketData(route.params);
   }
@@ -56,7 +58,7 @@ const TicketScreen = ({navigation, route}: any) => {
         <ImageBackground
           source={{uri: ticketData?.ticketImage}}
           style={styles.ticketBGImage}>
-
+          
         </ImageBackground>
         <View style={styles.linear}></View>
 
