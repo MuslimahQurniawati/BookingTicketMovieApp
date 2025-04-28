@@ -35,7 +35,7 @@ console.log('ticketImage:', ticketData?.ticketImage);
           <View style={styles.appHeaderContainer}>
             <AppHeader
               name="close"
-              header={''}
+              header={'My Ticket'}
               action={() => navigation.goBack()}
             />
           </View>
@@ -49,17 +49,17 @@ console.log('ticketImage:', ticketData?.ticketImage);
           <View style={styles.appHeaderContainer}>
             <AppHeader
               name="close"
-              header={''}
+              header={'My Ticket'}
               action={() => navigation.goBack()}
             />
           </View>
 
           <View style={styles.ticketContainer}>
-        <ImageBackground
-          source={{uri: ticketData?.ticketImage}}
-          style={styles.ticketBGImage}>
-          
-        </ImageBackground>
+          <ImageBackground
+            source={{ uri: ticketData.ticketImage || 'https://dummyimage.com/300x150/cccccc/000000&text=No+Image' }}
+            style={styles.ticketBGImage}
+          />
+
         <View style={styles.linear}></View>
 
         <View style={styles.ticketFooter}>
@@ -128,16 +128,16 @@ const styles = StyleSheet.create({
   ticketContainer:{
     flex: 1,
     justifyContent: 'center',
-    marginBottom: 100,
+   marginBottom: SPACING.space_20,
   },
   ticketBGImage:{
     alignSelf: 'center',
     width: 300,
-    aspectRatio: 200 / 300,
+    height: 350,
     borderTopLeftRadius: BORDERADIUS.radius_20,
     borderTopRightRadius: BORDERADIUS.radius_20,
     overflow: 'hidden',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   },
   linear:{
     borderTopColor: COLORS.Black,
@@ -172,13 +172,15 @@ const styles = StyleSheet.create({
   },
   dateTitle:{
     color: COLORS.White,
-    fontSize: SPACING.space_24,
+    fontSize: 22,
     fontFamily: FONTFAMILY.poppins_medium,
+
   },
   subtitle:{
     fontFamily: FONTFAMILY.poppins_regular,
     fontSize: FONTSIZE.size_14,
     color: COLORS.White,
+
   },
   subheading:{
     fontFamily: FONTFAMILY.poppins_medium,
@@ -189,10 +191,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   clockIcon:{
-    fontSize: FONTSIZE.size_20,
+    fontSize: 22,
     color: COLORS.White,
-    paddingBottom: SPACING.space_10,
-    alignSelf: 'center',
   },
   barcodeImage: {
     width: 150,

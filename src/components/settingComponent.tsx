@@ -21,7 +21,7 @@ const SettingComponent = (props: SettingComponentProps) => {
         <Text style={styles.subtitle}>{props.subtitle}</Text>
       </View>
       <View>
-
+        <Icon name="chevron-right" size={24} color={COLORS.White} />
       </View>
     </View>
   );

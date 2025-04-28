@@ -286,7 +286,7 @@ const styles = StyleSheet.create({
   buttonBG:{
     alignItems: 'center',
     marginVertical: SPACING.space_24,
-    marginBottom: 70
+    marginBottom: 55
   },
   buttonText:{
     borderRadius: BORDERADIUS.radius_25 * 2,

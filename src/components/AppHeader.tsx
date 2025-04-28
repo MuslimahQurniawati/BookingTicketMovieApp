@@ -18,8 +18,8 @@ export default AppHeader;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    display: 'flex',
+    // flex: 1,
+    // display: 'flex',
     flexDirection:'row',
     alignItems: 'center',
     justifyContent: 'center',

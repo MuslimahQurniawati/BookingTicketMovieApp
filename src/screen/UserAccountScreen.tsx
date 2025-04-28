@@ -25,7 +25,7 @@ const UserAccountScreen = ({navigation}: any) => {
                 subheading='Edit Profile'
                 subtitle='Change Password'/>
               <SettingComponent 
-                icon= 'setting'
+                icon= 'settings'
                 heading='Settings'
                 subheading='Theme'
                 subtitle='Permissions'/>
@@ -34,6 +34,11 @@ const UserAccountScreen = ({navigation}: any) => {
                 heading='Help'
                 subheading='FAQ'
                 subtitle='Contact Support'/>
+              <SettingComponent 
+                icon= 'info'
+                heading='About'
+                subheading='About Movies'
+                subtitle='More'/>
         </View>
     </View>
   );
@@ -52,8 +57,9 @@ const styles = StyleSheet.create({
       marginHorizontal: SPACING.space_36,
     },
     profileContainer:{
-      marginHorizontal: SPACING.space_36,
-      marginTop: SPACING.space_20*2,
+      alignItems: 'center',
+      padding: SPACING.space_36,  
+      // marginTop: SPACING.space_20*2,
     },
     avatarImage:{
       height: 80,
@@ -64,6 +70,6 @@ const styles = StyleSheet.create({
       fontFamily: 'Poppins-Medium',
       fontSize: SPACING.space_20,
       color: COLORS.White,
-      marginTop: SPACING.space_12,
+      marginTop: SPACING.space_10,
     }
 });
