@@ -5,12 +5,19 @@ import MovieDetailsScreen from '../src/screen/MovieDetailsScreen';
 import SeatBookingScreen from '../src/screen/SeatBookingScreen';
 import SearchScreen from '../src/screen/SearchScreen';
 import TicketScreen from '@/src/screen/TicketScreen';
+import { enableScreens } from 'react-native-screens';
+import splashScreen from '@/src/screen/splashScreen';
+import HomeScreen from '@/src/screen/HomeScreen';
+enableScreens();
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
       <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Splash" component={splashScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen
           name="Tab"
           component={TabNavigator}

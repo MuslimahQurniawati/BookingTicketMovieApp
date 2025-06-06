@@ -98,9 +98,8 @@ const HomeScreen = ({ navigation }: any) => {
         data={nowPlayingMoviesList} 
         keyExtractor={(item: any) => item.id}
         bounces={false}
-        snapToInterval={width * 1.5 + SPACING.space_36}
-        horizontal
         showsHorizontalScrollIndicator={false}
+        horizontal
         contentContainerStyle={styles.containerGap36}
         renderItem={({ item, index }) => {
           if (item.id === 'dummy1' || item.id === 'dummy2') {

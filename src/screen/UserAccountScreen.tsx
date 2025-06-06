@@ -17,7 +17,7 @@ const UserAccountScreen = ({navigation}: any) => {
           </View>
         <View style={styles.profileContainer}>
         
-            <Image source={require('../asset/image/foto.jpg')} style={styles.avatarImage} />
+            <Image source={require('../asset/image/levi.jpeg')} style={styles.avatarImage} />
             <Text style={styles.avatarText}>Muslimah Qurniawati</Text>
               <SettingComponent 
                 icon= 'user'
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     profileContainer:{
       alignItems: 'center',
       padding: SPACING.space_36,  
-      // marginTop: SPACING.space_20*2,
+      marginTop: SPACING.space_20,
     },
     avatarImage:{
       height: 80,
@@ -71,5 +71,6 @@ const styles = StyleSheet.create({
       fontSize: SPACING.space_20,
       color: COLORS.White,
       marginTop: SPACING.space_10,
+      marginBottom: SPACING.space_20,
     }
 });
