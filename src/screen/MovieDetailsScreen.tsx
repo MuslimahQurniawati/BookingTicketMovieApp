@@ -6,6 +6,24 @@ import AppHeader from '../components/AppHeader';
 import { Ionicons } from '@expo/vector-icons';
 import CategoryHeader from '../components/CategoryHeader';
 import CastCard from '../components/CastCard';
+// import { InteractionManager } from 'react-native';
+
+// const [isReady, setIsReady] = useState(false);
+
+// useEffect(() => {
+//   const task = InteractionManager.runAfterInteractions(() => {
+//     setIsReady(true);
+//   });
+
+//   return () => task.cancel();
+// }, []);
+
+// if (!isReady) {
+//   return (
+//     <View style={{ flex: 1, backgroundColor: COLORS.Black }} />
+//   );
+// }
+
 
 const getMovieDetails = async (movieid: number) => {
   try {

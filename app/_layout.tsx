@@ -4,7 +4,14 @@ import TabNavigator from '../src/navigator/TabNavigator';
 import MovieDetailsScreen from '../src/screen/MovieDetailsScreen';
 import SeatBookingScreen from '../src/screen/SeatBookingScreen';
 import SearchScreen from '../src/screen/SearchScreen';
-import TicketScreen from '@/src/screen/TicketScreen';
+import TicketScreen from '../src/screen/TicketScreen';
+import { enableScreens } from 'react-native-screens';
+import EditProfileScreen from '../src/screen/EditProfileScreen';
+import ThemeSettingsScreen from '../src/screen/ThemeSettingScreen';
+import HelpScreen from '../src/screen/HelpScreen';
+import AboutScreen from '../src/screen/AboutScreen';
+enableScreens();
+
 
 const Stack = createNativeStackNavigator();
 
@@ -19,12 +26,12 @@ export default function App() {
         <Stack.Screen
           name="MovieDetails"
           component={MovieDetailsScreen}
-          options={{animation: 'slide_from_right'}}
+          options={{animation: 'slide_from_right'}} // bebas, bisa kamu ganti efek transisinya.
         />
         <Stack.Screen
           name="SeatBooking"
           component={SeatBookingScreen}
-          options={{animation: 'slide_from_bottom'}}
+          options={{animation: 'slide_from_right'}} // bebas, bisa kamu ganti efek transisinya.
         />
         <Stack.Screen
           name="Search"
@@ -35,6 +42,18 @@ export default function App() {
           name="Ticket"
           component={TicketScreen}
           options={{animation: 'slide_from_right'}} // bebas, bisa kamu ganti efek transisinya.
+        />
+        <Stack.Screen name="EditProfileScreen" 
+          component={EditProfileScreen} 
+        />
+        <Stack.Screen name="ThemeSettingScreen" 
+          component={ThemeSettingsScreen}
+        />
+        <Stack.Screen name="HelpScreen" 
+          component={HelpScreen} 
+        />
+        <Stack.Screen name="AboutScreen" 
+          component={AboutScreen}
         />
       </Stack.Navigator>
   );

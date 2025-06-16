@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Pressable } from 'react-native';
 import { COLORS, SPACING } from '../Theme/theme';
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -9,11 +9,18 @@ interface SettingComponentProps {
   heading: string;
   subheading: string;
   subtitle: string;
+  onPress: any
 }
 
 const SettingComponent = (props: SettingComponentProps) => {
+  const handlePress = (event: any) => {
+    if (typeof props.onPress === 'function') {
+      props.onPress(event);
+    }
+  };
+
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={handlePress}>
        <Icon name={props.icon} size={24} color={COLORS.White} style={styles.icon} />
       <View style={styles.settingContainer}>
         <Text style={styles.title}>{props.heading}</Text>
@@ -23,7 +30,8 @@ const SettingComponent = (props: SettingComponentProps) => {
       <View>
         <Icon name="chevron-right" size={24} color={COLORS.White} />
       </View>
-    </View>
+    </Pressable>
+    
   );
 };
 
