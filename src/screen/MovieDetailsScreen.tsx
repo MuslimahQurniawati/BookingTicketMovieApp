@@ -97,13 +97,13 @@ console.log(movieCastData)
           style={styles.imageBG}>
            <View style={styles.gradientOverlay} />
 
-            <View style={[styles.gradientFallback, styles.appHeaderContainer]}>
+            {/* <View style={[styles.gradientFallback, styles.appHeaderContainer]}>
               <AppHeader
                 name='close'
                 header={''}
                 action={() => navigation.goBack()}
               />
-            </View>
+            </View> */}
 
         </ImageBackground>
         <View style={styles.imageBG}></View>

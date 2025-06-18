@@ -6,7 +6,7 @@ const AboutScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image
-        source={require('../assets/images/icon.png')} // Ganti dengan logo kamu
+        source={require('../asset/image/splashScreen.png')} // Ganti dengan logo kamu
         style={styles.logo}
       />
       <Text style={styles.title}>Tentang Aplikasi</Text>
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    width: 120,
-    height: 120,
+    width: 250,
+    height: 90,
     marginBottom: 20,
     borderRadius: 60,
   },

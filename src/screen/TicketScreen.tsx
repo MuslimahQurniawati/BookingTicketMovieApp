@@ -32,13 +32,13 @@ console.log('ticketImage:', ticketData?.ticketImage);
     return (
       <View style={styles.container}>
           <StatusBar hidden />
-          <View style={styles.appHeaderContainer}>
+          {/* <View style={styles.appHeaderContainer}>
             <AppHeader
               name="close"
               header={'My Ticket'}
               action={() => navigation.goBack()}
             />
-          </View>
+          </View> */}
         </View>
     );
   }
@@ -46,17 +46,17 @@ console.log('ticketImage:', ticketData?.ticketImage);
   return (
     <View style={styles.container}>
           <StatusBar hidden />
-          <View style={styles.appHeaderContainer}>
+          {/* <View style={styles.appHeaderContainer}>
             <AppHeader
               name="close"
               header={'My Ticket'}
               action={() => navigation.goBack()}
             />
-          </View>
+          </View> */}
 
           <View style={styles.ticketContainer}>
           <ImageBackground
-            source={{ uri: ticketData.ticketImage || 'https://dummyimage.com/300x150/cccccc/000000&text=No+Image' }}
+            source={{ uri: ticketData.ticketImage || 'https://example.com/default-image.jpg' }}
             style={styles.ticketBGImage}
           />
 

@@ -6,6 +6,8 @@ import SeatBookingScreen from '../src/screen/SeatBookingScreen';
 import SearchScreen from '../src/screen/SearchScreen';
 import TicketScreen from '../src/screen/TicketScreen';
 import { enableScreens } from 'react-native-screens';
+import splashScreen from '../src/screen/splashScreen';
+import HomeScreen from '../src/screen/HomeScreen';
 import EditProfileScreen from '../src/screen/EditProfileScreen';
 import ThemeSettingsScreen from '../src/screen/ThemeSettingScreen';
 import HelpScreen from '../src/screen/HelpScreen';
@@ -18,6 +20,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
       <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Splash" component={splashScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen
           name="Tab"
           component={TabNavigator}
@@ -26,12 +30,12 @@ export default function App() {
         <Stack.Screen
           name="MovieDetails"
           component={MovieDetailsScreen}
-          options={{animation: 'slide_from_right'}} // bebas, bisa kamu ganti efek transisinya.
+          options={{animation: 'slide_from_right'}}
         />
         <Stack.Screen
           name="SeatBooking"
           component={SeatBookingScreen}
-          options={{animation: 'slide_from_right'}} // bebas, bisa kamu ganti efek transisinya.
+          options={{animation: 'slide_from_bottom'}}
         />
         <Stack.Screen
           name="Search"

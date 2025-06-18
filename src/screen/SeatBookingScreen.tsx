@@ -145,13 +145,13 @@ const SeatBookingScreen = ({ route }: { route: any }) => {
         <View>
           <ImageBackground source={{uri: route.params?. BgImage}} style={styles.ImageBG}>
           <View style={styles.gradientOverlay} />
-            <View style={[styles.gradientFallback, styles.appHeaderContainer]}>
+            {/* <View style={[styles.gradientFallback, styles.appHeaderContainer]}>
               <AppHeader
                 name='close'
                 header={''}
                 action={() => navigation.goBack()}
               />
-            </View>
+            </View> */}
           </ImageBackground>
           <Text style={styles.screenText}>Screen This Side</Text>
         </View>
