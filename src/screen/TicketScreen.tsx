@@ -56,7 +56,7 @@ console.log('ticketImage:', ticketData?.ticketImage);
 
           <View style={styles.ticketContainer}>
           <ImageBackground
-            source={{ uri: ticketData.ticketImage || 'https://example.com/default-image.jpg' }}
+            source={ticketData?.ticketImage ? { uri: ticketData?.ticketImage } : require('../asset/image/tiket.png')}
             style={styles.ticketBGImage}
           />
 
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   clockIcon:{
-    fontSize: 22,
+    fontSize: 23,
     color: COLORS.White,
   },
   barcodeImage: {
