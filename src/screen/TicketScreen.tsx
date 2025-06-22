@@ -1,7 +1,6 @@
 import  React, {useEffect, useState} from 'react';
 import { Text, View, StyleSheet, StatusBar, ImageBackground, Image } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
-import AppHeader from '../components/AppHeader';
 import { BORDERADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../Theme/theme';
 import { Ionicons } from '@expo/vector-icons';
 

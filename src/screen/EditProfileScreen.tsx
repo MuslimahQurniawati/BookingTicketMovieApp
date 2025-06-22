@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, TextInput, Button, StyleSheet, Image, Alert, TouchableOpacity, Text } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { COLORS } from '../Theme/theme';
 // import { useFocusEffect } from '@react-navigation/native';
 
 const EditProfileScreen = ({ navigation }: any) => {
@@ -68,8 +69,9 @@ const EditProfileScreen = ({ navigation }: any) => {
     style={styles.input}
     placeholderTextColor="#aaa"
     />
-
-      <Button title="Save Changes" onPress={saveChanges} />
+    <TouchableOpacity onPress={saveChanges}>
+      <Text style={styles.save}>Save Changes</Text>
+    </TouchableOpacity>
     </View>
   );
 };
@@ -79,7 +81,7 @@ export default EditProfileScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: COLORS.Black,
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -104,4 +106,11 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 20,
   },
+  save: {
+    backgroundColor: COLORS.Red,
+    color: '#fff',
+    width: '100%',
+    padding: 10,
+    borderRadius: 8,
+  }
 });

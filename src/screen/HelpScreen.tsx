@@ -8,7 +8,8 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 import { COLORS } from '../Theme/theme';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -105,7 +106,9 @@ useEffect(() => {
           style={[styles.input, styles.messageInput]}
         />
 
-        <Button title="Kirim" onPress={handleSubmit} />
+        <TouchableOpacity onPress={handleSubmit}>
+              <Text style={styles.save}>Save Changes</Text>
+            </TouchableOpacity>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -140,4 +143,12 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
     color: COLORS.White
   },
+  save:{
+    backgroundColor: COLORS.Red,
+    padding: 12,
+    borderRadius: 10,
+    marginBottom: 16,
+    textAlign: 'center',
+    color: '#fff',
+  }
 });

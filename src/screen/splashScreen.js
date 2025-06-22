@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, Image, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, Image, ActivityIndicator, StyleSheet, StatusBar } from 'react-native';
 
 export default function SplashScreen({ navigation }) {
   useEffect(() => {
@@ -10,6 +10,7 @@ export default function SplashScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <StatusBar hidden />
       <Image source={require('../asset/image/splashScreen.png')} style={styles.logo} />
       {/* <ActivityIndicator size="large" color="#ff4b4b" /> */}
     </View>
@@ -27,6 +28,5 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     resizeMode: 'contain',
-    // marginBottom: 20,
   },
 });

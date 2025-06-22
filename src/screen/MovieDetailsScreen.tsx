@@ -2,28 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, ScrollView, ActivityIndicator, StatusBar, ImageBackground, Image, FlatList, TouchableOpacity } from 'react-native';
 import { baseImagePath, movieDetails, moviecastDetails } from '../api/apicalls';
 import { BORDERADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../Theme/theme'
-import AppHeader from '../components/AppHeader';
 import { Ionicons } from '@expo/vector-icons';
 import CategoryHeader from '../components/CategoryHeader';
 import CastCard from '../components/CastCard';
-// import { InteractionManager } from 'react-native';
-
-// const [isReady, setIsReady] = useState(false);
-
-// useEffect(() => {
-//   const task = InteractionManager.runAfterInteractions(() => {
-//     setIsReady(true);
-//   });
-
-//   return () => task.cancel();
-// }, []);
-
-// if (!isReady) {
-//   return (
-//     <View style={{ flex: 1, backgroundColor: COLORS.Black }} />
-//   );
-// }
-
 
 const getMovieDetails = async (movieid: number) => {
   try {
@@ -69,12 +50,7 @@ console.log(movieCastData)
         contentContainerStyle={styles.scrollViewcontainer}
         bounces={false}
         showsVerticalScrollIndicator={false}>
-        <View style={styles.appHeaderContainer}>
-          <AppHeader 
-            name='close' 
-            header={''} 
-            action={() => navigation.goBack()} />
-        </View>
+        <StatusBar hidden />
         <View style={styles.loadingContainer}>
           <ActivityIndicator size='large' color={COLORS.Red} />
         </View>
@@ -97,13 +73,6 @@ console.log(movieCastData)
           style={styles.imageBG}>
            <View style={styles.gradientOverlay} />
 
-            {/* <View style={[styles.gradientFallback, styles.appHeaderContainer]}>
-              <AppHeader
-                name='close'
-                header={''}
-                action={() => navigation.goBack()}
-              />
-            </View> */}
 
         </ImageBackground>
         <View style={styles.imageBG}></View>
@@ -201,10 +170,6 @@ const styles = StyleSheet.create({
   },
   scrollViewcontainer:{
     flex: 1,
-  },
-  appHeaderContainer:{
-    marginTop: SPACING.space_20*2,
-    marginHorizontal: SPACING.space_36,
   },
   gradientOverlay: {
     position: 'absolute',

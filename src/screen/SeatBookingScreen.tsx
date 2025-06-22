@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Text, View, StyleSheet, ScrollView, StatusBar, ImageBackground, TouchableOpacity, FlatList, ToastAndroid } from 'react-native';
 import { COLORS, FONTFAMILY, FONTSIZE, SPACING, BORDERADIUS } from '../Theme/theme';
-import AppHeader from '../components/AppHeader';
 import { Ionicons } from '@expo/vector-icons';
 import * as SecureStore from 'expo-secure-store';
 
@@ -145,13 +144,6 @@ const SeatBookingScreen = ({ route }: { route: any }) => {
         <View>
           <ImageBackground source={{uri: route.params?. BgImage}} style={styles.ImageBG}>
           <View style={styles.gradientOverlay} />
-            {/* <View style={[styles.gradientFallback, styles.appHeaderContainer]}>
-              <AppHeader
-                name='close'
-                header={''}
-                action={() => navigation.goBack()}
-              />
-            </View> */}
           </ImageBackground>
           <Text style={styles.screenText}>Screen This Side</Text>
         </View>
@@ -277,10 +269,6 @@ const styles = StyleSheet.create({
     width: '100%',
     aspectRatio: 3073/1727,
   },
-  appHeaderContainer:{
-      marginTop: SPACING.space_20*2,
-      marginHorizontal: SPACING.space_36,
-    },
     gradientOverlay: {
       position: 'absolute',
       left: 0,

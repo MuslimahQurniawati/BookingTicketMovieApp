@@ -9,6 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { COLORS } from '../Theme/theme';
 
 const SettingScreen = () => {
   const navigation = useNavigation<any>();
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   button: {
-    backgroundColor: '#3b82f6',
+    backgroundColor: COLORS.Red,
     padding: 16,
     borderRadius: 10,
     marginBottom: 16,
