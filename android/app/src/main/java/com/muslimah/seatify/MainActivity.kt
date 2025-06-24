@@ -1,4 +1,4 @@
-package com.anonymous.Movie_App
+package com.muslimah.seatify
 
 import android.os.Build
 import android.os.Bundle

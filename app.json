@@ -4,16 +4,10 @@
     "slug": "seatify",
     "version": "1.0.0",
     "orientation": "portrait",
-    "splash": {
-      "image": "./asset/images/splashScreen.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#000000"
-    },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      
+      "package": "com.muslimah.seatify"
+      
     },
     "web": {
       "bundler": "metro",
@@ -34,10 +28,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d5608e72-6076-4227-b76b-c73c1df40eb5"
+      }
     }
-
   }
-
-  
-
 }

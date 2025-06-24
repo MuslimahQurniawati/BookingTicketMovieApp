@@ -1,38 +1,40 @@
 pluginManagement {
-    includeBuild(new File(["node", "--print", "require.resolve('@react-native/gradle-plugin/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim()).getParentFile().toString())
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        
+    }
 }
-plugins { id("com.facebook.react.settings") }
 
-extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
-  if (System.getenv('EXPO_USE_COMMUNITY_AUTOLINKING') == '1') {
-    ex.autolinkLibrariesFromCommand()
-  } else {
-    def command = [
-      'node',
-      '--no-warnings',
-      '--eval',
-      'require(require.resolve(\'expo-modules-autolinking\', { paths: [require.resolve(\'expo/package.json\')] }))(process.argv.slice(1))',
-      'react-native-config',
-      '--json',
-      '--platform',
-      'android'
-    ].toList()
-    ex.autolinkLibrariesFromCommand(command)
-  }
+plugins {
+    id "com.android.application" version "8.1.1" apply false
+    id "com.android.library" version "8.1.1" apply false
+    id "org.jetbrains.kotlin.android" version "1.9.25" apply false
+    id "com.google.devtools.ksp" version "1.9.20-1.0.14" apply false
+}
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        reactAndroidLibs {
+            from(files(new File(["node", "--print", "require.resolve('react-native/package.json')"]
+                .execute(null, rootDir).text.trim(), "../gradle/libs.versions.toml")))
+        }
+    }
 }
 
 rootProject.name = 'MovieApp'
-
-dependencyResolutionManagement {
-  versionCatalogs {
-    reactAndroidLibs {
-      from(files(new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim(), "../gradle/libs.versions.toml")))
-    }
-  }
-}
-
-apply from: new File(["node", "--print", "require.resolve('expo/package.json')"].execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle");
-useExpoModules()
-
 include ':app'
-includeBuild(new File(["node", "--print", "require.resolve('@react-native/gradle-plugin/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim()).getParentFile())
+project(':app').projectDir = new File(rootDir, 'app')
+
+// Tambahkan untuk AsyncStorage
+include ':react-native-async-storage_async-storage'
+project(':react-native-async-storage_async-storage').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-async-storage/async-storage/android')
+
+// Tambahkan untuk Lottie
+include ':lottie-react-native'
+project(':lottie-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/lottie-react-native')
+
+// Plugin build React Native
+includeBuild(new File(["node", "--print", "require.resolve('@react-native/gradle-plugin/package.json', { paths: [require.resolve('react-native/package.json')] })"]
+    .execute(null, rootDir).text.trim()).getParentFile())

@@ -20,7 +20,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Splash" component={splashScreen} />
+        
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen
           name="Tab"

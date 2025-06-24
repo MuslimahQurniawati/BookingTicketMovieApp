@@ -5,10 +5,10 @@ import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 const AboutScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Image
+      {/* <Image
         source={require('../asset/image/splashScreen.png')} // Ganti dengan logo kamu
         style={styles.logo}
-      />
+      /> */}
       <Text style={styles.title}>Tentang Aplikasi</Text>
       <Text style={styles.description}>
         Aplikasi ini dibuat untuk membantu pengguna dalam melakukan pemesanan tiket bioskop secara mudah dan cepat. 
