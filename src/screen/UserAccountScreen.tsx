@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View, StyleSheet, StatusBar, Image } from 'react-native';
 import { COLORS, SPACING } from '../Theme/theme';
 import AppHeader from '../components/AppHeader';
-import SettingComponent from '../components/SettingComponent';
+import SettingComponent from '../components/settingComponent';
 
 const UserAccountScreen = ({navigation}: any) => {
   return (
